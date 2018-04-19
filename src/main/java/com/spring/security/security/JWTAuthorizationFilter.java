@@ -30,9 +30,10 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter{
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
-
+        System.out.println("Autorize");
         String header = request.getHeader(HEADER_STRING);
         if (header == null || !header.startsWith(TOKEN_PREFIX)) {
+            System.out.println("DO FILTER");
             chain.doFilter(request, response);
             return;
         }
